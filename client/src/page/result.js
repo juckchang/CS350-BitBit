@@ -109,7 +109,7 @@ function Result(props) {
                             <div className='b-explain'>The file downloaded successfully!</div>
                             <div className='b-explain'>(Summarized file also deleted in the server.)</div>
                         </div>
-                        : <div className='result-inner'><iframe style={{width: '100%', height: '100%'}} src={props.response.url} /></div>
+                        : <div className='result-inner'><iframe style={{ width: '100%', height: '100%' }} src={props.response.url + '#toolbar=0'} /></div>
                 }
             </div >
         </div>
