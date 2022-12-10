@@ -29,3 +29,8 @@ sudo docker compose up -d
 access `http://localhost`
 
 ( wait if startup first time. beacause install NLP model initiallize working ) 
+
+
+Speed is very dependent on computer's performance.
+
+Depending on the performance, option 1,2 (summarize nlp with butt model) may not work.
