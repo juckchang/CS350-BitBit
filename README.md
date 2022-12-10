@@ -23,7 +23,7 @@ npm install -g yarn
 ```bash
 cd client
 yarn
-yarn build
+yarn run build
 ```
 
 5. install python requirements
