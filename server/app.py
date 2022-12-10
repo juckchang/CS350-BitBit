@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from flask import Flask, request, flash, json, jsonify, send_file, send_from_directory
 from summarizer import Summarizer
 from uuid import uuid4, UUID
@@ -99,7 +100,7 @@ def summarize():
     return filename
 
   try:
-    nlp = spacy.load("en_core_sci_lg")
+    nlp = spacy.load("en_core_web_sm")
     doc = nlp(text)
     keyword = doc.ents[0]
     if option == 0:

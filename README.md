@@ -28,3 +28,4 @@ sudo docker compose up -d
 
 access `http://localhost`
 
+( wait if startup first time. beacause install NLP model initiallize working ) 
