@@ -15,6 +15,7 @@ import os
 import fitz
 import re
 import spacy
+import pytextrank
 
 app = Flask(__name__, static_folder='../client/build')
 
@@ -101,6 +102,7 @@ def summarize():
 
   try:
     nlp = spacy.load("en_core_web_sm")
+    nlp.add_pipe("textrank")
     doc = nlp(text)
     keyword = doc.ents[0]
     if option == 0:

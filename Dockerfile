@@ -21,6 +21,7 @@ RUN python3 -m pip install --upgrade pip
 RUN python3 -m pip install -r requirements.txt
 RUN python3 -m spacy download en
 RUN python3 -m pip install PyMuPDF
+RUN python3 -m pip install pytextrank
 RUN mkdir upload result
 
 CMD ["pm2-runtime", "app.py", "--interpreter", "python3"]
