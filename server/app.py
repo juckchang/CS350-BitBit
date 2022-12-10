@@ -13,7 +13,7 @@ import string
 import os
 import fitz
 import re
-
+import spacy
 
 app = Flask(__name__, static_folder='../client/build')
 
@@ -86,7 +86,8 @@ def summarize():
   if count / len(text) < 0.95:
     return jsonify(status='fail', message='English text must be 95%'), 500
   
-  def generatePDF(text):
+  def generatePDF(text, keyword):
+    text = f'keyword: {keyword}\n\n' + text
     filename = uuid4()
     doc = fitz.open()
     page = doc.new_page()
@@ -98,14 +99,17 @@ def summarize():
     return filename
 
   try:
+    nlp = spacy.load("en_core_sci_lg")
+    doc = nlp(text)
+    keyword = doc.ents[0]
     if option == 0:
-      filename = generatePDF(text)
+      filename = generatePDF(text, keyword)
     elif option == 1:
       summarize = model(text, num_sentences=1)
-      filename = generatePDF(summarize)
+      filename = generatePDF(summarize, keyword)
     elif option == 2:
       summarize = model(text, num_sentences=5)
-      filename = generatePDF(summarize)
+      filename = generatePDF(summarize, keyword)
   except Exception as e:
     print(e)
     return jsonify(status='fail', message='error to summaize'), 500
