@@ -3,6 +3,48 @@
 Environment
 - Ubuntu 22.04
 
+1. install nodejs
+```bash
+curl -sL https://deb.nodesource.com/setup_18.x -o /tmp/node.sh
+sudo sh /tmp/node.sh
+```
+
+2. install python3, python3 pip
+```bash
+sudo apt install python3 python3-pip
+```
+
+3. install yarn
+```bash
+npm install -g yarn
+```
+
+4. build frontend
+```bash
+cd client
+yarn
+yarn build
+```
+
+5. install python requirements
+```bash
+cd server
+python3 -m pip install --upgrade pip
+python3 -m pip install -r requirements.txt
+python3 -m spacy download en
+python3 -m pip install PyMuPDF
+python3 -m pip install pytextrank
+
+mkdir upload result
+```
+
+6. run app
+```bash
+python3 app.py
+```
+
+---
+
 1. Install Docker 
 
 ```bash
