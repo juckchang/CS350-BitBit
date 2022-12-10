@@ -208,4 +208,4 @@ def sendEmail():
 
 if __name__ == '__main__':
   model = Summarizer()
-  app.run(port=9911)
+  app.run(host='0.0.0.0', port=9911, threaded=True)
