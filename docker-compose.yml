@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  bitbit:
+    build: .
+    ports:
+      - "80:9911"
